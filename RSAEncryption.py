@@ -27,15 +27,15 @@ def getValues():
     return p, q, e
 
 
-def message(phi_n):
+def message(n):
     """ Get message from user safely"""
     while True:
         # Input Message
         m = int(input("\nEnter the value of Message 'm' (as Integer): "))
-        if m < phi_n:
+        if m < n:
             break
         else:
-            print(f"\n 😝 The value of 'm' {m} must be less than 'Phi(n) as 1 < e < φ(n)' {phi_n}"), sleep(1)
+            print(f"\n 😝 The value of 'm' {m} must be less than n' {n}"), sleep(1)
     return m
 
 
@@ -50,14 +50,14 @@ def generateKeys(p, q, e):
     d = pow(e, -1, phi_n)
     print(f"The value of 'd' is e inverse Phi(n): {d}"), sleep(1)
     print(f"The Private-Key (n,d): ({n}, {d})"), sleep(1)
-    return n, phi_n, d
+    return n,  d
 
 
 def main():
     """Run the main program 🏃 """
     p, q, e = getValues()
-    n, phi_n, d = generateKeys(p, q, e)
-    m = message(phi_n)
+    n,  d = generateKeys(p, q, e)
+    m = message(n)
     C = pow(m, e, n)  # Encrypted Message
     print(f"\n🥳 The Ciphertext 'C' is m^e mod n: {C}"), sleep(1)
     M = pow(C, d, n)		# Decrypted Message
