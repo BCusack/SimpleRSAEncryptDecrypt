@@ -6,6 +6,7 @@ os.system('cls' if os.name == 'nt' else 'clear')
 
 """
 Simple RSA Encryption Program in Python 3.9!!!
+@Author Brian Cusack
 """
 
 
@@ -34,8 +35,7 @@ def message(phi_n):
         if m < phi_n:
             break
         else:
-            print(
-                f"\n 😝 The value of 'm' {m} must be less than 'Phi(n) as 1 < e < φ(n)' {phi_n}"), sleep(1)
+            print(f"\n 😝 The value of 'm' {m} must be less than 'Phi(n) as 1 < e < φ(n)' {phi_n}"), sleep(1)
     return m
 
 
